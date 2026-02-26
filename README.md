@@ -1,6 +1,6 @@
 ---
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-ff69b4.svg)](https://github.com/rr-proximo-comboio-rr/flutter_translate_fix/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-ff69b4.svg)](https://github.com/agroop/flutter_translate_fix/blob/master/LICENSE)
 
 ---
 
@@ -10,13 +10,13 @@
 
 ## Example
 
-https://github.com/rr-proximo-comboio-rr/flutter_translate_fix/tree/master/example
+https://github.com/agroop/flutter_translate_fix/tree/master/example
 
 ---
 
 ## License
 
 This project is licensed under
-the [MIT License](https://github.com/rr-proximo-comboio-rr/flutter_translate_fix/blob/master/LICENSE)
+the [MIT License](https://github.com/agroop/flutter_translate_fix/blob/master/LICENSE)
 
 ---
