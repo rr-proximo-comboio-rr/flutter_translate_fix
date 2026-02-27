@@ -32,10 +32,20 @@ String translatePlural(String key, num value, {Map<String, dynamic>? args}) {
 /// Change the currently selected locale
 Future changeLocale(BuildContext context, String? localeCode) async {
   if (localeCode != null) {
-    await LocalizedApp.of(context)
-        .delegate
-        .changeLocale(localeFromString(localeCode));
+    await LocalizedApp.of(
+      context,
+    ).delegate.changeLocale(localeFromString(localeCode));
 
     LocalizationProvider.of(context).state.onLocaleChanged();
+  }
+}
+
+extension ListX<E> on List<E> {
+  E? firstWhereOrNull(bool test(E element), {E orElse()?}) {
+    for (E element in this) {
+      if (test(element)) return element;
+    }
+    if (orElse != null) return orElse();
+    return null;
   }
 }

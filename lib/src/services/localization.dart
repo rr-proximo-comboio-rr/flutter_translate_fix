@@ -2,9 +2,9 @@ import 'package:flutter_translate_fix/src/constants/constants.dart';
 import 'package:intl/intl.dart';
 
 class Localization {
-  late Map<String, dynamic> _translations;
-
   Localization._();
+
+  late Map<String, dynamic> _translations;
 
   static Localization? _instance;
 
@@ -16,7 +16,7 @@ class Localization {
   }
 
   String translate(String key, {Map<String, dynamic>? args}) {
-    var translation = _getTranslation(key, _translations);
+    String? translation = _getTranslation(key, _translations);
 
     if (translation != null && args != null) {
       translation = _assignArguments(translation, args);
@@ -35,7 +35,8 @@ class Localization {
       two: _putArgs(forms[Constants.pluralTwo], value, args: args),
       few: _putArgs(forms[Constants.pluralFew], value, args: args),
       many: _putArgs(forms[Constants.pluralMany], value, args: args),
-      other: _putArgs(forms[Constants.pluralOther], value, args: args) ??
+      other:
+          _putArgs(forms[Constants.pluralOther], value, args: args) ??
           '$key.${Constants.pluralOther}',
     );
   }
@@ -67,14 +68,16 @@ class Localization {
   }
 
   String? _getTranslation(String key, Map<String, dynamic> map) {
-    List<String> keys = key.split('.');
+    final keys = key.split('.');
 
     if (keys.length > 1) {
-      var firstKey = keys.first;
+      final firstKey = keys.first;
 
       if (map.containsKey(firstKey) && map[firstKey] is! String) {
         return _getTranslation(
-            key.substring(key.indexOf('.') + 1), map[firstKey]);
+          key.substring(key.indexOf('.') + 1),
+          map[firstKey],
+        );
       }
     }
 
@@ -89,7 +92,9 @@ class Localization {
 
       if (map.containsKey(firstKey) && map[firstKey] is! String) {
         return _getAllPluralForms(
-            key.substring(key.indexOf('.') + 1), map[firstKey]);
+          key.substring(key.indexOf('.') + 1),
+          map[firstKey],
+        );
       }
     }
 
